@@ -8,6 +8,7 @@ const {
   addBank,
   addNominee,
   termsAndConditions,
+  signOut,
 } = require("../controllers/account.controller");
 
 const router = express.Router();
@@ -37,5 +38,8 @@ router.post('/nominne',isAuthenticate,addNominee)
 
 //terms and conditions
 router.post('/terms',isAuthenticate,termsAndConditions)
+
+//signout
+router.post('/signout',isAuthenticate,signOut)
 
 module.exports = router;
