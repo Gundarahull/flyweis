@@ -10,24 +10,26 @@ const updateUser = async (req, res) => {
   const { fullName } = req.body;
 
   try {
-    const updatedUser = await UserModel.findOneAndUpdate(
-      { _id: req.tokenData._id, isSigned: true },
-      { $set: { fullname: fullName } },
-      { new: true }
-    );
-
-    if (!updatedUser) {
-      return res.status(404).json({
-        status: false,
-        message: "User not found",
+    const userCheck = await UserModel.findById(req.tokenData._id);
+    if (userCheck && userCheck.isSignedIn) {
+      const updatedUser = await UserModel.findByIdAndUpdate(
+        req.tokenData._id,
+        { $set: { fullname: fullName } },
+        { new: true }
+      );
+      return res.status(200).json({
+        status: true,
+        message: "User updated successfully",
+        results: updatedUser,
       });
     }
 
-    return res.status(200).json({
-      status: true,
-      message: "User updated successfully",
-      results: updatedUser,
-    });
+    if (!userCheck || !userCheck.isSignedIn) {
+      return res.status(404).json({
+        status: false,
+        message: "User not found ot not SignedIn",
+      });
+    }
   } catch (error) {
     console.error(error);
     return res.status(500).json({
@@ -65,11 +67,10 @@ const updateImage = async (req, res) => {
 
 const showeKYC = async (req, res) => {
   try {
-    const user = await UserModel.findOne({
-      _id: req.tokenData._id,
-      isSigned: true,
-    });
-    if (!user) {
+    const user = await UserModel.findById(req.tokenData._id);
+    console.log("user>>>", user);
+
+    if (!user || !user.isSignedIn) {
       return res.status(404).json({
         status: false,
         message: "User not found or Not SignedIN",
@@ -103,34 +104,37 @@ const updateEkyc = async (req, res) => {
   const { aadharNumber, panNumber, permantAddress, dob, gender, occuputaion } =
     req.body;
   try {
-    const user = await UserModel.findOneAndUpdate(
-      {
-        _id: req.tokenData._id,
-        isSigned: true,
-      },
-      {
-        $set: {
-          aadharNumber: aadharNumber,
-          panNumber: panNumber,
-          permantAddress: permantAddress,
-          dob: dob,
-          gender: gender,
-          occuputaion: occuputaion,
+    const userId = String(req.tokenData._id);
+    console.log("converted string");
+    const userCheck = await UserModel.findByIdAndUpdate(userId);
+    if (userCheck && userCheck.isSignedIn) {
+      const user = await UserModel.findByIdAndUpdate(
+        {
+          _id: req.tokenData._id.toString(),
+          isSigned: true,
         },
-      },
-      { new: true }
-    );
-
-    if (!user) {
-      return res.status(404).json({
-        status: false,
-        message: "User not found",
+        {
+          $set: {
+            aadharNumber: aadharNumber,
+            panNumber: panNumber,
+            permantAddress: permantAddress,
+            dob: dob,
+            gender: gender,
+            occuputaion: occuputaion,
+          },
+        },
+        { new: true }
+      );
+      return res.status(200).json({
+        status: true,
+        message: "EKYC details updated",
+        results: user,
       });
     }
-    return res.status(200).json({
-      status: true,
-      message: "EKYC details updated",
-      results: user,
+
+    return res.status(404).json({
+      status: false,
+      message: "User not found",
     });
   } catch (error) {
     console.error(error);
