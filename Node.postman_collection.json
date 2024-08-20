@@ -1,0 +1,449 @@
+{
+	"info": {
+		"_postman_id": "752e1e01-be5f-40ee-9671-5a66beea0fe3",
+		"name": "Node",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34712377"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"mobileNumber\":\"+917995349819\",\r\n  \"deviceId\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://flyweis-fmgs.onrender.com/login",
+							"protocol": "https",
+							"host": [
+								"flyweis-fmgs",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VerifyOtp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"mobileNumber\":\"+917995349819\",\r\n  \"deviceId\":\"1234\",\r\n  \"otp\":\"856810\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://flyweis-fmgs.onrender.com/verifyOtp",
+							"protocol": "https",
+							"host": [
+								"flyweis-fmgs",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"verifyOtp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Investment",
+			"item": [
+				{
+					"name": "profit calculator",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmMwZjM0ZDYzMjdhYjU1ZWI1NmU5NzUiLCJtb2JpbGVOdW1iZXIiOiIrOTE3OTk1MzQ5ODE5IiwiaWF0IjoxNzI0MDA5MzUwLCJleHAiOjE3MjQwOTU3NTB9.7VOOTVNVrTNjbxcovWK6AbIUVWGpxsFd5JkfTEwURW8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 10000,\r\n  \"lockingPeriod\": 14\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://flyweis-fmgs.onrender.com/invest/profitCalculator",
+							"protocol": "https",
+							"host": [
+								"flyweis-fmgs",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"invest",
+								"profitCalculator"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transcation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmMwZjM0ZDYzMjdhYjU1ZWI1NmU5NzUiLCJtb2JpbGVOdW1iZXIiOiIrOTE3OTk1MzQ5ODE5IiwiaWF0IjoxNzI0MDA5MzUwLCJleHAiOjE3MjQwOTU3NTB9.7VOOTVNVrTNjbxcovWK6AbIUVWGpxsFd5JkfTEwURW8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://flyweis-fmgs.onrender.com/invest/transcations",
+							"protocol": "https",
+							"host": [
+								"flyweis-fmgs",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"invest",
+								"transcations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invest Money",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmMwZjM0ZDYzMjdhYjU1ZWI1NmU5NzUiLCJtb2JpbGVOdW1iZXIiOiIrOTE3OTk1MzQ5ODE5IiwiaWF0IjoxNzI0MDA5MzUwLCJleHAiOjE3MjQwOTU3NTB9.7VOOTVNVrTNjbxcovWK6AbIUVWGpxsFd5JkfTEwURW8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": \"85000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://flyweis-fmgs.onrender.com/invest/amount",
+							"protocol": "https",
+							"host": [
+								"flyweis-fmgs",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"invest",
+								"amount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "updateUsername",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmMwZjM0ZDYzMjdhYjU1ZWI1NmU5NzUiLCJtb2JpbGVOdW1iZXIiOiIrOTE3OTk1MzQ5ODE5IiwiaWF0IjoxNzI0MDA5MzUwLCJleHAiOjE3MjQwOTU3NTB9.7VOOTVNVrTNjbxcovWK6AbIUVWGpxsFd5JkfTEwURW8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullName\": \"Rahul Rai_123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://flyweis-fmgs.onrender.com/account/updateUsername",
+									"protocol": "https",
+									"host": [
+										"flyweis-fmgs",
+										"onrender",
+										"com"
+									],
+									"path": [
+										"account",
+										"updateUsername"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update image",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmMwZjM0ZDYzMjdhYjU1ZWI1NmU5NzUiLCJtb2JpbGVOdW1iZXIiOiIrOTE3OTk1MzQ5ODE5IiwiaWF0IjoxNzI0MDA5MzUwLCJleHAiOjE3MjQwOTU3NTB9.7VOOTVNVrTNjbxcovWK6AbIUVWGpxsFd5JkfTEwURW8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ef5da25-05ca-4a30-a627-999caabfb06b"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://flyweis-fmgs.onrender.com/account/updateImage",
+									"protocol": "https",
+									"host": [
+										"flyweis-fmgs",
+										"onrender",
+										"com"
+									],
+									"path": [
+										"account",
+										"updateImage"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ShowEkyc",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmMwZjM0ZDYzMjdhYjU1ZWI1NmU5NzUiLCJtb2JpbGVOdW1iZXIiOiIrOTE3OTk1MzQ5ODE5IiwiaWF0IjoxNzI0MDA5MzUwLCJleHAiOjE3MjQwOTU3NTB9.7VOOTVNVrTNjbxcovWK6AbIUVWGpxsFd5JkfTEwURW8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://flyweis-fmgs.onrender.com/account/ekyc",
+							"protocol": "https",
+							"host": [
+								"flyweis-fmgs",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"account",
+								"ekyc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEkyc",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmMwZjM0ZDYzMjdhYjU1ZWI1NmU5NzUiLCJtb2JpbGVOdW1iZXIiOiIrOTE3OTk1MzQ5ODE5IiwiaWF0IjoxNzI0MDA5MzUwLCJleHAiOjE3MjQwOTU3NTB9.7VOOTVNVrTNjbxcovWK6AbIUVWGpxsFd5JkfTEwURW8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"aadharNumber\": \"12435678901\",\r\n    \"panNumber\": \"1234\",\r\n    \"permantAddress\": \"tirupai\",\r\n    \"dob\": \"05-02-2024\",\r\n    \"gender\": \"Male\",\r\n    \"occuputaion\": \"JOB\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://flyweis-fmgs.onrender.com/account/updatekyc",
+							"protocol": "https",
+							"host": [
+								"flyweis-fmgs",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"account",
+								"updatekyc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nominne",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmMwZjM0ZDYzMjdhYjU1ZWI1NmU5NzUiLCJtb2JpbGVOdW1iZXIiOiIrOTE3OTk1MzQ5ODE5IiwiaWF0IjoxNzI0MDA5MzUwLCJleHAiOjE3MjQwOTU3NTB9.7VOOTVNVrTNjbxcovWK6AbIUVWGpxsFd5JkfTEwURW8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Sunny\",\r\n  \"email\": \"sunny@gmail.com\",\r\n  \"phoneNumber\": 12345,\r\n  \"releation\": \"Sister\",\r\n  \"aadharNumber\": 1234\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://flyweis-fmgs.onrender.com/account/nominne",
+							"protocol": "https",
+							"host": [
+								"flyweis-fmgs",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"account",
+								"nominne"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "manageBanks",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmMwZjM0ZDYzMjdhYjU1ZWI1NmU5NzUiLCJtb2JpbGVOdW1iZXIiOiIrOTE3OTk1MzQ5ODE5IiwiaWF0IjoxNzI0MDA5MzUwLCJleHAiOjE3MjQwOTU3NTB9.7VOOTVNVrTNjbxcovWK6AbIUVWGpxsFd5JkfTEwURW8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"AccountHolderName\": \"rahul\",\r\n  \"accountNumber\": 123467,\r\n  \"IFSCcode\": \"12344\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://flyweis-fmgs.onrender.com/account/bank",
+							"protocol": "https",
+							"host": [
+								"flyweis-fmgs",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"account",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "terms",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmMwZjM0ZDYzMjdhYjU1ZWI1NmU5NzUiLCJtb2JpbGVOdW1iZXIiOiIrOTE3OTk1MzQ5ODE5IiwiaWF0IjoxNzI0MDA5MzUwLCJleHAiOjE3MjQwOTU3NTB9.7VOOTVNVrTNjbxcovWK6AbIUVWGpxsFd5JkfTEwURW8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://flyweis-fmgs.onrender.com/account/terms",
+							"protocol": "https",
+							"host": [
+								"flyweis-fmgs",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"account",
+								"terms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignOut",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmMwZjM0ZDYzMjdhYjU1ZWI1NmU5NzUiLCJtb2JpbGVOdW1iZXIiOiIrOTE3OTk1MzQ5ODE5IiwiaWF0IjoxNzI0MDA5MzUwLCJleHAiOjE3MjQwOTU3NTB9.7VOOTVNVrTNjbxcovWK6AbIUVWGpxsFd5JkfTEwURW8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://flyweis-fmgs.onrender.com/account/signout",
+							"protocol": "https",
+							"host": [
+								"flyweis-fmgs",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"account",
+								"signout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

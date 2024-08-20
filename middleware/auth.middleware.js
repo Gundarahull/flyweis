@@ -7,11 +7,11 @@ const isAuthenticate = async (req, res, next) => {
       const token = req.headers.authorization.split(" ")[1];
       const decoded = jwt.verify(token, process.env.SECRET_KEY);
       console.log("decoded>>>>>", decoded);
-
       const user = await UserModel.findById(decoded.userId);
       if (user) {
-        console.log("user in the middleware", user);
-        req.tokenData = user;
+        const json=JSON.stringify(user)
+        console.log("json format>>>>>",json);
+        req.tokenData = json;
         next();
       } else {
         return res.status(404).json({

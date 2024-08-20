@@ -9,27 +9,39 @@ const Terms = require("../models/terms.model");
 const updateUser = async (req, res) => {
   const { fullName } = req.body;
 
-  try {
-    const userCheck = await UserModel.findById(req.tokenData._id);
-    if (userCheck && userCheck.isSignedIn) {
-      const updatedUser = await UserModel.findByIdAndUpdate(
-        req.tokenData._id,
-        { $set: { fullname: fullName } },
-        { new: true }
-      );
-      return res.status(200).json({
-        status: true,
-        message: "User updated successfully",
-        results: updatedUser,
-      });
-    }
+  //LINK:https://docs.google.com/document/d/1QxcPXw9weIsayYNcr46_sKHSYB0eH07lpQDgwBSbzwI/edit#heading=h.6jynaot9cbnq
 
-    if (!userCheck || !userCheck.isSignedIn) {
-      return res.status(404).json({
-        status: false,
-        message: "User not found ot not SignedIn",
-      });
-    }
+  try {
+    // // const userCheck = await UserModel.findById(req.tokenData._id);
+    // // if (userCheck && userCheck.isSignedIn) {
+    // //   const updatedUser = await UserModel.(
+    // //     req.tokenData._id,
+    // //     { $set: { fullname: fullName } },
+    // //     { new: true }
+    // //   );
+    //   return res.status(200).json({
+    //     status: true,
+    //     message: "User updated successfully",
+    //     results: updatedUser,
+    //   });
+    // }
+
+    // if (!userCheck || !userCheck.isSignedIn) {
+    //   return res.status(404).json({
+    //     status: false,
+    //     message: "User not found ot not SignedIn",
+    //   });
+    // }
+    const One=await UserModel.findOne({_id:req.tokenData._id})
+    const userCheck = await UserModel.findOneAndUpdate(
+      { _id: req.tokenData._id, isSignedIn: true },
+      { $set: { fullname: fullName } }
+    );
+    return res.status(200).json({
+      status: true,
+      message: "User updated successfully",
+      results: One,
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).json({
